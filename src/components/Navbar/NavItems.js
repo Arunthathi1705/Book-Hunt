@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { navItems } from "../../Data/navData.js";
 
@@ -31,7 +31,7 @@ const NavItems = ({ isMobile = false, activeNav, setActiveNav }) => {
     });
 
     return () => observer.disconnect();
-  }, [location.pathname]);
+  }, [location.pathname, isMobile, setActiveNav]);
 
 
 
@@ -46,7 +46,7 @@ const NavItems = ({ isMobile = false, activeNav, setActiveNav }) => {
     if (routeToNav[location.pathname]) {
       setActiveNav(routeToNav[location.pathname]);
     }
-  }, [location.pathname]);
+  }, [location.pathname, setActiveNav]);
 
 
 

@@ -30,6 +30,9 @@ const RecommendedBooks = ({ booksCache, wishlistState, triggerLogin }) => {
     const shuffled = [...allBooks].sort(() => 0.5 - Math.random());
     recommendedRef.current = shuffled.slice(0, 6);
     setLoading(false);
+
+    // We intentionally exclude booksCache to prevent re-fetch loops.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 

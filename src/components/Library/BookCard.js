@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { FaBookmark, FaRegBookmark } from "react-icons/fa";
 import placeholder from "../../Assets/book-placeholder.png";
 
 const BookCard = ({ book, onClick, bookmarked, onBookmarkChange }) => {
   const [thumbnail, setThumbnail] = useState(placeholder);
-  const info = book.volumeInfo || {};
+  const info = useMemo(() => book.volumeInfo || {}, [book.volumeInfo]);
+
 
 
   useEffect(() => {

@@ -40,7 +40,7 @@ const LibraryExplore = ({ wishlistState, triggerLogin }) => {
 
   useEffect(() => setSelectedBook(null), []);
   useEffect(() => { if (!urlSearch) setSearchTerm(""); }, [urlSearch, setSearchTerm]);
-  useEffect(() => { if (urlSearch) setSearchTerm(prev => prev !== urlSearch ? urlSearch : prev); }, [urlSearch]);
+  useEffect(() => { if (urlSearch) setSearchTerm(prev => prev !== urlSearch ? urlSearch : prev); }, [urlSearch, setSearchTerm]);
 
 
   useEffect(() => {
@@ -94,6 +94,7 @@ const LibraryExplore = ({ wishlistState, triggerLogin }) => {
     };
 
     loadBooks();
+
   }, [activeGenre, searchTerm]);
 
   const isSearchMode = searchTerm.trim().length > 0;

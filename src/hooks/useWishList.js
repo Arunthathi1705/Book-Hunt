@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { auth, db } from "../components/firebase-auth/Firebase";
 import { collection, doc, setDoc, deleteDoc, onSnapshot } from "firebase/firestore";
-import { showNotification } from "@mantine/notifications";
-import { IconInfoCircle } from "@tabler/icons-react";
+
 
 // Main hook for wishlist
 export const useWishList = () => {
@@ -19,7 +18,7 @@ export const useWishList = () => {
     });
 
     return () => unsub(); // cleanup listener
-  }, [auth.currentUser]);
+  }, []);
 
   const toggleBook = async (book) => {
     if (!auth.currentUser) return;
