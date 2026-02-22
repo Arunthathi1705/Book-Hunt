@@ -42,7 +42,7 @@ const LibraryExplore = ({ wishlistState, triggerLogin }) => {
   useEffect(() => { if (!urlSearch) setSearchTerm(""); }, [urlSearch, setSearchTerm]);
   useEffect(() => { if (urlSearch) setSearchTerm(prev => prev !== urlSearch ? urlSearch : prev); }, [urlSearch, setSearchTerm]);
 
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (searchTerm.trim()) return;
 
