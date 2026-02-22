@@ -15,7 +15,7 @@ const FeedbackIcon = () => {
       className={`
     fixed right-4 md:right-10
     bottom-6         
-    sm:bottom-6       
+    sm:bottom-8       
     bottom-20         
     w-12 h-12 cursor-pointer z-50 
     rounded-full flex items-center justify-center

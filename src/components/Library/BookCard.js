@@ -36,21 +36,21 @@ const BookCard = ({ book, onClick, bookmarked, onBookmarkChange }) => {
     >
 
       <div
-        className="absolute top-1 right-1 z-10 cursor-pointer"
-        onClick={(e) => {
-          e.stopPropagation();
-          if (onBookmarkChange) onBookmarkChange();
-        }}
-      >
-        {bookmarked ? (
-          <FaBookmark className="text-yellow-500" size={18} />
-        ) : (
-          <FaRegBookmark className="text-black" size={18} />
-        )}
-      </div>
+  className="flex justify-end px-2 mt-1 cursor-pointer"
+  onClick={(e) => {
+    e.stopPropagation();
+    if (onBookmarkChange) onBookmarkChange();
+  }}
+>
+  {bookmarked ? (
+    <FaBookmark className="text-yellow-500" size={16} />
+  ) : (
+    <FaRegBookmark className="text-black" size={16} />
+  )}
+</div>
 
       {/* Book Image */}
-      <div className="h-[130px] md:h-[160px] flex items-center justify-center p-1">
+      <div className="h-[130px] md:h-[160px] flex items-center justify-center">
 
         <img
           src={thumbnail}
@@ -62,7 +62,8 @@ const BookCard = ({ book, onClick, bookmarked, onBookmarkChange }) => {
       </div>
 
 
-      <p className="text-[10px] md:text-xs text-gray-800 font-medium text-center mt-1 line-clamp-2 leading-tight px-1">
+      <p className="text-[10px] md:text-xs text-gray-800 font-medium text-center mt-1 px-1 truncate">
+
         {info.title || "No title"}
       </p>
     </motion.div>
