@@ -1,24 +1,44 @@
 import { useState, useEffect } from "react";
 import { auth, db } from "../components/firebase-auth/Firebase";
 import { collection, doc, setDoc, deleteDoc, onSnapshot } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
+
 
 
 // Main hook for wishlist
 export const useWishList = () => {
   const [wishlist, setWishlist] = useState([]);
 
-  // Load wishlist on mount & subscribe to changes
   useEffect(() => {
-    if (!auth.currentUser) return;
-    const colRef = collection(db, "users", auth.currentUser.uid, "bookmarks");
+  let unsubscribeSnapshot = null;
 
-    const unsub = onSnapshot(colRef, (snapshot) => {
+  const unsubscribeAuth = onAuthStateChanged(auth, (user) => {
+
+    // If user logs out → clear wishlist immediately
+    if (!user) {
+      setWishlist([]);
+      if (unsubscribeSnapshot) {
+        unsubscribeSnapshot();
+        unsubscribeSnapshot = null;
+      }
+      return;
+    }
+
+    // If user logs in → attach Firestore listener
+    const colRef = collection(db, "users", user.uid, "bookmarks");
+
+    unsubscribeSnapshot = onSnapshot(colRef, (snapshot) => {
       const books = snapshot.docs.map(doc => doc.data());
       setWishlist(books);
     });
+  });
 
-    return () => unsub(); // cleanup listener
-  }, []);
+  return () => {
+    if (unsubscribeSnapshot) unsubscribeSnapshot();
+    unsubscribeAuth();
+  };
+}, []);
+
 
   const toggleBook = async (book) => {
     if (!auth.currentUser) return;
