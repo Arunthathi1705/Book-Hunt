@@ -1,4 +1,4 @@
-// src/Firebase/Register.jsx
+
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "./Firebase";
@@ -40,7 +40,8 @@ const Register = ({ onClose, switchToLogin }) => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -50 }}
-        className="bg-white p-6 rounded-xl shadow-xl w-96 relative"
+        className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-sm sm:max-w-md relative"
+
       >
         <h2 className="text-2xl font-bold mb-4 text-center">Register</h2>
         {error && <p className="text-red-500 mb-2 text-center">{error}</p>}

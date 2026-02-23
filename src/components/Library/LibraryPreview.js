@@ -37,8 +37,8 @@ const LibraryPreview = ({
       {/* ================= HEADER ================= */}
       <div className="flex justify-between items-start px-4 pt-4 pb-2">
         <div>
-          <h2 className="text-2xl font-semibold leading-tight m-0">Library</h2>
-          <p className="text-sm text-gray-500 leading-snug m-0 max-w-md">
+          <h2 className="text-2xl sm:text-lg font-semibold leading-tight m-0">Library</h2>
+          <p className="text-sm sm:text-[14px] text-gray-500 leading-snug m-0 max-w-md">
             Browse books by genre, discover new reads, and explore curated collections in one place.
           </p>
         </div>

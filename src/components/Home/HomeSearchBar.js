@@ -68,9 +68,11 @@ const HomeSearchBar = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
         className="
-    w-full flex items-center gap-3
+    w-full flex items-center gap-2 sm:gap-3
+
     bg-white
-    px-6 py-3
+   px-4 py-2 sm:px-6 sm:py-3
+
     rounded-full
     border border-white/90
 
@@ -80,7 +82,7 @@ const HomeSearchBar = () => {
   "
       >
         {/* Input */}
-        <img src={searchIcon} alt="search-icon" className="w-4 h-4 text-gray-700" />
+        <img src={searchIcon} alt="search-icon" className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-700" />
         <input
           type="text"
           placeholder="Search for books..."
@@ -89,7 +91,8 @@ const HomeSearchBar = () => {
     bg-transparent
     outline-none
     border-none
-    text-lg
+    text-base sm:text-lg
+
     text-gray-800
     placeholder-gray-500
     

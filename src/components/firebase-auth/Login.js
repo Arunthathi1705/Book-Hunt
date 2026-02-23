@@ -52,7 +52,8 @@ const Login = ({ onClose, switchToRegister }) => {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -50 }}
-        className="bg-white p-6 rounded-xl shadow-xl w-96 relative"
+        className="bg-white p-6 rounded-xl shadow-xl w-[90%] max-w-sm sm:max-w-md relative"
+
       >
         <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
         {error && <p className="text-red-500 mb-2 text-center">{error}</p>}

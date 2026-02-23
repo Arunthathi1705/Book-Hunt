@@ -186,7 +186,6 @@ const LibraryExplore = ({ wishlistState, triggerLogin }) => {
           <ExploreSearchBar
             value={searchTerm}
             onChange={setSearchTerm}
-            title={isSearchMode ? "Search Results" : ""}
           />
         </div>
 

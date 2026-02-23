@@ -42,10 +42,11 @@ export default function Home({ triggerLogin }) {
     <div id="home" className=" w-full">
       <BannerSlider />
       {/* === Quote Section === */}
-      <div className="w-full flex justify-start px-4 pt-2">
-        <div className="w-full flex flex-col md:flex-row gap-6 px-3">
+      <div className="px-4 pt-2">
+        <div className="flex flex-col md:flex-row gap-6">
+
           <div className="w-full md:w-[440px]">
-            <div className="w-full h-[200px] sm:h-[240px] bg-white rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col justify-between">
+            <div className="relative h-[200px] sm:h-[240px] bg-white rounded-2xl shadow-lg p-4 sm:p-6 flex flex-col justify-between">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={quoteIndex}
@@ -74,16 +75,16 @@ export default function Home({ triggerLogin }) {
                 </motion.div>
               </AnimatePresence>
 
-              <div className="mt-6">
+              <div className="absolute bottom-4 left-4">
                 <Button
                   variant="light"
                   className="text-xs sm:text-md px-3 sm:px-4 py-1 sm:py-2 rounded-full"
-
                   onClick={nextQuote}
                 >
                   Next Quote →
                 </Button>
               </div>
+
             </div>
           </div>
 

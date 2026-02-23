@@ -49,7 +49,7 @@ const BookDetails = ({ book, onClose, wishlist, toggleBookmark }) => {
         className="
           relative z-50
           w-[90%] md:w-[70%] lg:w-[60%]
-          min-h-[360px] md:min-h-[420px]
+          h-[80vh] md:h-[75vh]
           bg-white rounded-xl shadow-lg overflow-hidden
           flex flex-col md:flex-row
         "
@@ -73,7 +73,7 @@ const BookDetails = ({ book, onClose, wishlist, toggleBookmark }) => {
         </div>
 
 
-        <div className="w-full md:w-[65%] h-auto flex flex-col px-3 md:px-4 py-2">
+        <div className="w-full md:w-[65%] flex flex-col px-3 md:px-4 py-4 overflow-hidden">
           <div className="pb-2">
             <h2 className="text-lg md:text-xl font-semibold">{info.title}</h2>
             {info.authors && (
@@ -88,10 +88,14 @@ const BookDetails = ({ book, onClose, wishlist, toggleBookmark }) => {
 
 
           {info.description && (
-            <div className="mb-3">
+            <div className="mb-3 flex flex-col min-h-0">
               <div
-                className={`text-xs md:text-sm text-gray-700 leading-relaxed ${isExpanded ? "h-[160px] md:h-[220px] overflow-y-auto" : "line-clamp-4 md:line-clamp-6"
+                className={`text-xs md:text-sm text-gray-700 leading-relaxed ${isExpanded
+                    ? "max-h-[180px] md:max-h-[220px] overflow-y-auto pr-2"
+                    : "line-clamp-4 md:line-clamp-6"
                   }`}
+
+
               >
                 {isExpanded || !showReadMore
                   ? info.description

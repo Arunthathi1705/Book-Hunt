@@ -9,6 +9,13 @@ const TopNavbar = ({ triggerLogin, activeNav, setActiveNav }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
   const [user, setUser] = useState(null);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+
+
+  const firstName = user?.displayName
+    ? user.displayName.split(" ")[0]
+    : "";
+
 
 
   useEffect(() => {
@@ -50,23 +57,67 @@ const TopNavbar = ({ triggerLogin, activeNav, setActiveNav }) => {
           </div>
 
 
-          {!user ? (
-            <button
-              onClick={triggerLogin}
-              className="ml-4 flex items-center gap-2 px-3 py-1 rounded-md border border-gray-300 bg-white text-red-800 hover:bg-gray-100 transition"
-            >
-              <img src={userIcon} alt="user" className="h-4 w-4" />
-              <span className="text-sm">Login</span>
-            </button>
-          ) : (
-            <button
-              onClick={handleLogout}
-              className="ml-4 flex items-center gap-2 px-3 py-1 rounded-md border border-gray-300 bg-white text-gray-800 hover:bg-gray-100 transition"
-            >
-              <img src={userIcon} alt="user" className="h-4 w-4" />
-              <span className="text-sm">Logout</span>
-            </button>
-          )}
+          {/* ================= DESKTOP ================= */}
+          <div className="hidden sm:flex items-center">
+            {!user ? (
+              <button
+                onClick={triggerLogin}
+                className="ml-4 flex items-center gap-2 px-3 py-1 rounded-md border border-gray-300 bg-white text-red-800 hover:bg-gray-100 transition"
+              >
+                <img src={userIcon} alt="user" className="h-4 w-4" />
+                <span className="text-sm">Login</span>
+              </button>
+            ) : (
+              <div className="ml-4 flex items-center gap-3">
+                <span className="text-xs text-gray-600">
+                  Welcome, <span className="font-medium">{firstName}</span>
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 px-3 py-1 rounded-md border border-gray-300 bg-white text-gray-800 hover:bg-gray-100 transition"
+                >
+                  <img src={userIcon} alt="user" className="h-4 w-4" />
+                  <span className="text-sm">Logout</span>
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* ================= MOBILE ================= */}
+          <div className="relative sm:hidden ml-4">
+            <img
+              src={userIcon}
+              alt="user"
+              className="h-6 w-6 cursor-pointer"
+              onClick={() => setShowUserMenu(prev => !prev)}
+            />
+
+            {showUserMenu && (
+              <div className="absolute right-0 mt-2 w-36 bg-white shadow-lg rounded-md p-3 flex flex-col gap-2 z-50">
+                {user ? (
+                  <>
+                    <span className="text-xs text-gray-600">
+                      Welcome, <span className="font-medium">{firstName}</span>
+                    </span>
+                    <button
+                      onClick={handleLogout}
+                     className="w-full py-1 text-sm font-semibold border-none text-red-600 bg-gray-50 hover:bg-gray-100 rounded-md text-center transition"
+                    >
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    onClick={triggerLogin}
+                     className="w-full py-1 font-semibold text-sm border-none text-blue-600 bg-gray-50 hover:bg-gray-100 rounded-md text-center transition"
+                  >
+                    Login
+                  </button>
+                )}
+              </div>
+            )}
+          </div>
+
         </div>
       </nav>
 
