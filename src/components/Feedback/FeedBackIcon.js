@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import feedbackIcon from "../../Assets/feedback-img.png"; // your FlatIcon image
+import feedbackIcon from "../../Assets/feedback-img.png"; 
 
 const FeedbackIcon = () => {
   const navigate = useNavigate();

@@ -28,44 +28,59 @@ const BookCard = ({ book, onClick, bookmarked, onBookmarkChange }) => {
   return (
     <motion.div
       layout
-      className="relative w-[110px] h-[180px] md:w-[140px] md:h-[210px] flex flex-col justify-between cursor-pointer rounded-md shadow-md bg-white overflow-hidden"
+      className="relative w-[95px] h-[160px]
+ md:w-[140px] md:h-[210px] flex flex-col rounded-md shadow-md bg-white overflow-hidden"
 
       whileHover={{ scale: 1.05, boxShadow: "0px 8px 20px rgba(0,0,0,0.12)" }}
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
     >
 
-      <div
-  className="flex justify-end px-2 mt-1 cursor-pointer"
-  onClick={(e) => {
-    e.stopPropagation();
-    if (onBookmarkChange) onBookmarkChange();
-  }}
->
-  {bookmarked ? (
-    <FaBookmark className="text-yellow-500" size={16} />
-  ) : (
-    <FaRegBookmark className="text-black" size={16} />
-  )}
-</div>
-
       {/* Book Image */}
-      <div className="h-[130px] md:h-[160px] flex items-center justify-center">
+      <div className="h-[115px] md:h-[160px] w-full flex items-center justify-center flex-shrink-0">
 
         <img
           src={thumbnail}
           alt={info.title || "Book cover"}
           onError={(e) => (e.target.src = placeholder)}
-          className="max-h-full max-w-full object-contain rounded-sm"
+          className={`${thumbnail === placeholder
+            ? "w-[60%] h-[60%] object-contain"
+            : "w-full h-full object-cover"
+            }`}
           loading="lazy"
         />
       </div>
+      <div className="flex justify-center mt-1 flex-shrink-0">
+        {bookmarked ? (
+          <FaBookmark
+            className="text-yellow-500 cursor-pointer"
+            size={16}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onBookmarkChange) onBookmarkChange();
+            }}
+          />
+        ) : (
+          <FaRegBookmark
+            className="text-black cursor-pointer"
+            size={16}
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onBookmarkChange) onBookmarkChange();
+            }}
+          />
+        )}
+      </div>
 
 
-      <p className="text-[10px] md:text-xs text-gray-800 font-medium text-center mt-1 px-1 truncate">
+      <p className="text-[10px] md:text-xs text-gray-800 font-medium text-center mt-1 px-2 truncate flex-shrink-0">
 
         {info.title || "No title"}
       </p>
+
+
+
+
     </motion.div>
   );
 };
