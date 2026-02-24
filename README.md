@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+📚 BookHunt – Online Book Discovery & Wishlist App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+BookHunt is a full-stack book discovery application that allows users to search, explore, and save books to a personalized wishlist. The application provides a smooth, responsive, and modern UI with secure authentication and real-time data storage.
 
-## Available Scripts
+🔗 Live Demo: https://book-hunt-app.netlify.app
 
-In the project directory, you can run:
 
-### `npm start`
+🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🔍 Search books by title
+📖 Browse book details
+❤️ Add & remove books from wishlist
+🔐 Secure user authentication (Login / Signup)
+🔒 Protected routes for authenticated users
+☁️ Real-time wishlist storage using Firestore
+📱 Fully responsive design
+🎨 Smooth animations using Framer Motion
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Frontend:
 
-### `npm run build`
+React.js
+Tailwind CSS
+Framer Motion
+React Router DOM
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Backend & Database:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Firebase Authentication
+Cloud Firestore
+Deployment
+Netlify
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+🔐 Authentication Flow
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Users can sign up or log in using Firebase Authentication.
+Protected routes restrict access to wishlist features.
+Each user's wishlist is stored separately in Firestore.
+Real-time updates ensure seamless user experience.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+📂 Project Structure
+src/
+ ├── components/
+ ├── pages/
+ ├── context/
+ ├── firebase/
+ ├── hooks/
+ └── App.js
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+⚙️ Installation & Setup
 
-## Learn More
+If you want to run this project locally:
+Clone the repository
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+git clone [(https://github.com/Arunthathi1705/Book-Hunt.git)]
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+npm install
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Create a .env file and add your Firebase configuration keys
+Start the development server
 
-### Making a Progressive Web App
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+📌 Future Improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Pagination for search results
+Book categories filtering
+Dark mode toggle
+Performance optimization
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+👩‍💻 Contributors
 
-### `npm run build` fails to minify
+Arunthathi 
+Akalya
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📄 License
+This project is built for learning and portfolio purposes.
