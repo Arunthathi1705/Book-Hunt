@@ -1,6 +1,6 @@
 import { IconSearch } from "@tabler/icons-react";
 
-const ExploreSearchBar = ({ value, onChange, title }) => {
+const ExploreSearchBar = ({ value, onChange}) => {
 
   const handleClear = () => {
     onChange("");
@@ -8,10 +8,6 @@ const ExploreSearchBar = ({ value, onChange, title }) => {
 
   return (
     <div className="mb-4">
-      <h3 className="font-semibold text-lg mb-2 text-gray-900">
-        {title}
-      </h3>
-
       <div className="relative">
         <IconSearch
           size={16}
